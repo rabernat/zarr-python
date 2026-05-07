@@ -3,6 +3,7 @@ __all__ = [
     "ArrayNotFoundError",
     "BaseZarrError",
     "BoundsCheckError",
+    "ChunkNotFoundError",
     "ContainsArrayAndGroupError",
     "ContainsArrayError",
     "ContainsGroupError",
@@ -91,7 +92,7 @@ class MetadataValidationError(BaseZarrError):
 
 class UnknownCodecError(BaseZarrError):
     """
-    Raised when a unknown codec was used.
+    Raised when an unknown codec was used.
     """
 
 
@@ -144,3 +145,9 @@ class BoundsCheckError(IndexError): ...
 
 
 class ArrayIndexError(IndexError): ...
+
+
+class ChunkNotFoundError(BaseZarrError):
+    """
+    Raised when a chunk that was expected to exist in storage was not retrieved successfully.
+    """
